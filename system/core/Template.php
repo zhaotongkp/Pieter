@@ -34,6 +34,13 @@ class Template {
             $content = ob_get_contents();
             ob_end_clean();
             $this->out_put = $content;
+        }if(file_exists(VIEW_PATH .'/'.$this->template_name .'/' . $this->template_name . '.php') && ($view_file = VIEW_PATH .'/'.$this->template_name .'/' . $this->template_name . '.php')){
+            extract($this->data);
+            ob_start();
+            include $view_file;
+            $content = ob_get_contents();
+            ob_end_clean();
+            $this->out_put = $content;
         } else {
             trigger_error('加载 ' . $view_file . ' 模板不存在');
         }
