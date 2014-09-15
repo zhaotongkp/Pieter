@@ -24,6 +24,7 @@ return[
             'default_controller' => 'home',
             'default_action' => 'index',
             'url_type' => 1,
+//            'suffix'=>'.html'
         ],
         'cache' => [
             'cache_dir' => 'caching',

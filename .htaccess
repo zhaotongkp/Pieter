@@ -1,0 +1,17 @@
+ # Turn on URL rewriting  
+RewriteEngine On  
+
+# Installation directory 如果你的项目在非根目录的话，就填目录名，比如：/test/  
+#RewriteBase /urltest/  
+
+# Protect application and system files from being viewed  
+RewriteRule ^(system|model|db) - [F,L]  
+
+# Allow any files or directories that exist to be displayed directly  
+RewriteCond %{REQUEST_FILENAME} !-f  
+RewriteCond %{REQUEST_FILENAME} !-d  
+
+# Rewrite all other URLs to index.php/URL  
+RewriteRule .* /$0 [PT,L]  
+# or  
+#RewriteRule .* index.php?arg=$0 [PT,L]  

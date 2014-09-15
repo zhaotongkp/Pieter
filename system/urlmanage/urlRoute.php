@@ -26,7 +26,7 @@ class urlRoute {
      * @var type 
      */
     public $url_query;
-
+    public $suffix = '';
     /**
      *
      * @var type 
@@ -46,6 +46,7 @@ class urlRoute {
         if ($config != array()) {
             if ($config['url_type']) {
                 $this->url_type = $config['url_type'];
+                $this->suffix = $config['suffix'];
             }
         }
         $this->url_query = parse_url($_SERVER['REQUEST_URI']);
@@ -85,8 +86,16 @@ class urlRoute {
                 }
             }
         } else {
-            $array['c'] = self::CONTROLLER;
-            $array['a'] = self::ACTION;
+            if($this->suffix)
+            {
+                $des = substr($this->url_query['path'],0,strlen($this->url_query['path'])-strlen($this->suffix));
+                $path = explode('/', $des);
+                $array['c']= $path[2];
+                $array['a']= $path[3];
+            }else{
+                $array['c'] = self::CONTROLLER;
+                $array['a'] = self::ACTION;
+            }
         }
         if (isset($array['app'])) {
             $this->route_url['app'] = $array['app'];

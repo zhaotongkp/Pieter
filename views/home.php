@@ -13,7 +13,7 @@
 		<?php
 //                print_r($data['home']);
 //                print_r($params);
-//                print_r($thiprints);
+                print_r($this);
 		?>
 	</body>
 </html>

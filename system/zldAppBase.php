@@ -66,7 +66,7 @@ final class zldAppBase {
         self::autoLoad();
         $Route = new self::$_lib['urlRoute'](self::$_config['route']);
         $Route->getUrlArray();
-        print_r($Route);
+//        print_r($Route);
         self::roteToController($Route->route_url);
     }
 

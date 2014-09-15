@@ -10,10 +10,10 @@ use \zldFramework\system\core as zldcore;
 class IndexController extends zldcore\Controller {
 
     function __construct()     {
-        
+        echo 'se';
     }
     public function index()
     {
-        
+        echo __NAMESPACE__;
     }
 }

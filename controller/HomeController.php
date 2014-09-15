@@ -19,6 +19,7 @@ class HomeController extends zldcore\Controller {
 		$data['home'] = "zhaotongkp.cn";
 		$data["tong"] = "baohe";
 		zldcore\Controller::renderView('home', array("data" => $data, 'params' => $params,'model'=>$model));
+                echo "Home/index";
 	}
 
 }
